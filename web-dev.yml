@@ -1,0 +1,49 @@
+spring:
+  datasource:
+    url: jdbc:mysql://111.9.116.136:3306/moss?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: ENC(RQ4GirVdhQhzpV3LerE0IJpl8qcMdD+rfiVdjcJus4O0bWcmLOy0QItODmBXh+v8XemeWG4Od9Gc5MgZYSKHL11flgdM1zhznteMq28aTvxGQqiGBZGeRbxd8T8MUNVXQn+taOJ5LX324ibIgAY5n8NzkOwUuo/WdD7ONrGBYgipeFXQfPBHquYR9vj/0VAGRc7wxRJqYbR8zVMuGeh2yX50byHkUc8Yaer/hWX96iPyUCQtOIQ/qvayOTdmETTlY1A9H/U1JUUiOOX3WufFPj3zZaWgOGu58xu+Zx/2w78+IZVAqlTBrqMfx6m8Q7Yz5CN/2erAWVlcJ/ElLpkBe1t9WlR98a1pYAbVumF/DYOVq7zUMC+PCxND0YMvAxbPWsmFCUPoPCy8als+kIUl6QlN+xglqBhvkEjMyeWTd1D+Gcv0iZgRp/rhKZksmcyeoJAJk0G4EnynxjuQ6Ay5TzSc0zGkioxka42+DBPufwbphms4fGFcU6MBtg3BD7G+kQdNRwXk7Je3j/8LVADkpXURTWSOwsstKMAAfOhH3J1DyD1sKf5hw+wZHtwdwd7f4Qb2sBZieMvvsBpjNYPAUdYr1o9rGz+YO92rrbDEsOA89+CR4jE5FXsRT11WLjj3Bp4BxX0p+tIQ56n5tVso0i2WGdRhbhZ7RsYcQZnM4gI=)
+    sql-script-encoding: utf-8
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 10
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+        useLocalSessionState: true
+        rewriteBatchedStatements: true
+        cacheResultSetMetadata: true
+        cacheServerConfiguration: true
+        elideSetAutoCommits: true
+        maintainTimeStats: false
+  jpa:
+    show-sql: true
+    open-in-view: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  http:
+    log-request-details: true
+  redis:
+    host: 111.9.116.141
+    port: 6379
+    database: 10
+    password: ENC(mo5eLYr0VAEygpwHCyppZObadcPuAQ59N9zk//9ha3UBCapPpARiCYxTn2iJ6BntMuI2rdI08+E8s+VbhSKl4OEIcZebtUAY3Mg+s27blJXeQd2LWX7SmJfxoT69bGdmwU2/74Jh0YlGvDUr58UtgqL2wtCG67x2He0igzmUdYTvE/LJZPqQ+Woy2NgfHr517y5+tX0I0fyV1p501NIM29E8WivGca2LxppuHjfwj7nRbQVrdMeVa2loK4EL01JGFBd8H45O18CL4gCsvLhvOAMUIBfyeQg+gN84dLkLvgumDKOdSkWroUgSa0U6O1bmNQDKZTB9do+Ok3VLkJONi8QxsUnfiPkclZTlOWoF12VpdDlHeSfjbGHHHVa79yAIhahn/5eaQHIW3rEbry7WKufIW4bYKim75x+YD5ZDo6m1YF9WookSpCnViPkFuaCtobu2k++6UQpzw6hbtPytZ60N9ohUp4SWthpzizOr1fhINBvsxXoD45CX5nLwDAyVDnl3kFlht92G0yIj9D4CA0J/YWM/2mkUySu0C28M4CnLHxlszDjlPASb1EajXQnhmqfavOqb8qsNHuJ4Tn9E/3cT2//ZQjAJfdk8F/BB4GOdWbsXsyrgayEIYFAB5GokKWwmXNUWdWmmkMCux3wsIZwC//8Z7iAfotgucKs/Tnc=)
+    timeout: 5s
+  session:
+    store-type: redis
+    timeout: 30m
+logging:
+  level:
+    com.changhong: trace
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    org.hibernate.type.descriptor.sql.BasicExtractor: trace
+jasypt:
+  encryptor:
+    private-key-format: PEM
+    private-key-location: classpath:secret/private.pem
